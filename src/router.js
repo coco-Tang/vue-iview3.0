@@ -9,7 +9,11 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        title: '首页',
+        icon: ''
+      }
     },
     {
       path: '/about',
