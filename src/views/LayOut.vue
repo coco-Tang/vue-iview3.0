@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
-    <!-- <div class="sidenav-con" :style="{width: shrink ? '60px' : '200px'}">
-      <Menu>
-        <MenuItem v-for="item in menuList" :key="item.name">{{ item.name }}</MenuItem>
+  <div class="main">
+    <div class="sidenav-con" :style="{width: shrink ? '60px' : '200px'}">
+      <Menu width="auto" theme="dark" @on-select="changeMenu">
+        <MenuItem v-for="item in menuList" :key="item.name" :name="item.name">{{ item.meta.title }}</MenuItem>
       </Menu>
     </div>
     <div class="main-con" :style="{paddingLeft: shrink ? '60px' : '200px'}">
@@ -48,7 +48,7 @@
       <div class="page-view">
         <router-view></router-view>
       </div>
-    </div> -->
+    </div>
     <!-- <Button v-for="(item,index) in btnArr" :key="index" @click="showModal(item.b)">{{item.a}}</Button> -->
     <!-- <BaseModal :show="modal_show"></BaseModal> -->
   </div>
@@ -59,7 +59,7 @@
 import BaseModal from "@/components/BaseModal.vue";
 
 export default {
-  name: "home",
+  name: "LayOut",
   components: {
     BaseModal
   },
@@ -86,6 +86,12 @@ export default {
     }
   },
   methods: {
+    changeMenu (active) {
+      // console.log('active',active);
+      this.$router.push({
+          name: active
+      });
+    },
     toggleClick() {
       this.shrink = !this.shrink;
     },
@@ -103,7 +109,10 @@ export default {
 .ivu-btn-text:focus {
   box-shadow: none;
 }
-.home {
+.ivu-menu-dark {
+  background: none;
+}
+.main {
   width: 100%;
   height: 100%;
   position: relative;

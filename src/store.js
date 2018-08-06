@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from './router'
+import { appRouter } from './router'
 
 Vue.use(Vuex)
 
@@ -16,9 +16,11 @@ export default new Vuex.Store({
   mutations: {
     updateMenulist (state) {
       let menuList = [];
-      router.forEach((item) => {
-        
+      appRouter.forEach((item) => {
+        menuList.push(item);
       })
+      // console.log('menuList',menuList)
+      state.menuList = menuList;
     }
   },
   actions: {
