@@ -14,7 +14,7 @@ module.exports = {
     configureWebpack: () => {},
     // vue-loader 配置项
     // https://vue-loader.vuejs.org/en/options.html
-    vueLoader: {},
+    // vueLoader: {},
     // 生产环境是否生成 sourceMap 文件
     productionSourceMap: true,
     // css相关配置
